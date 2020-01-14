@@ -19,7 +19,7 @@ def add_user(request):
 
 def deleteUser(request, id):
     User.objects.get(id=id).delete()
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('projekt/index.html')
 
 def comleteUser(request, id):
     user = User.objects.get(id=id)

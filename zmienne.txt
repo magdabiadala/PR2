@@ -1,4 +1,0 @@
-mysite -> PR2
-polls -> projekt
-class Question -> class User
-was_published_recently -> was_born_recently
