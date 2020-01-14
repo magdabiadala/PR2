@@ -17,11 +17,11 @@ def add_user(request):
     User(name = request.POST['name']).save()
     return HttpResponseRedirect('/')
 
-def deleteUser(request, id):
+def delete_user(request, id):
     User.objects.get(id=id).delete()
-    return HttpResponseRedirect('projekt/index.html')
+    return HttpResponseRedirect('/projekt/')
 
-def comleteUser(request, id):
+def comlete_user(request, id):
     user = User.objects.get(id=id)
     user.is_deleted = False
     user.save()
