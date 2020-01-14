@@ -1,9 +1,31 @@
-{% if latest_users_list %}
+<!--{% if latest_users_list %}
     <ul>
     {% for user in latest_users_list %}
-        <li><a href="{% url 'projekt:detail' user.id %}">{{ user.name }}</a></li>
+        <li><a href="{% url 'projekt:detail' user.id %}">{{ user.name }}
+          <form action = "/delete_user/{{user.id}}" method="post" id="form_delete">{% csrf_token %}</form>
+        </a></li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No users are available.</p>
-{% endif %}
+{% endif %}-->
+
+<body>
+  <div class="list_content">
+    <h1> Użytkownicy </h1>
+    <ul class="list">
+      {% for user in all_users %}
+        <li class="item_complited"><a href="/projekt/{{user.id}}/">{{ user.name }}</a>
+          <form action="/deleteUser/{{user.id}}" method="post" id="form_delete">{% csrf_token %}
+          <button type="submit" id="delete_button"> id="cross"></button>
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <form action="/projekt/" method="post">{% csrf_token %}
+      <input type="text" name="name" maxlength="50" size="32" autofocus autocomplete="off" placeholder="Podaj imię"/>
+      <input type="submit" value="Dodaj" class="submit_button"/>
+    </form>
+  </div>
+</body>
