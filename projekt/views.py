@@ -15,7 +15,8 @@ def detail(request, id):
 
 def add_user(request):
     User(name = request.POST['name']).save()
-    return HttpResponseRedirect('/')
+#    User(surname = request.POST['surname']).save()
+    return HttpResponseRedirect('/projekt/')
 
 def delete_user(request, id):
     User.objects.get(id=id).delete()
