@@ -3,7 +3,7 @@ from django.urls import path
 from . import views
 from . import models
 from projekt.views import delete_user
-from projekt.models import add_user
+from projekt.views import add_user
 from projekt.views import edit_user
 
 app_name = 'projekt'

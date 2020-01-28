@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from projekt.models import delete_user
+from projekt.views import delete_user
 from projekt.views import add_user
 from projekt.views import edit_user
 
