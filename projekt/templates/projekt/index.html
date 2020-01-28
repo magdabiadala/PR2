@@ -2,14 +2,15 @@
   <div class="list_content">
     <h1> Użytkownicy </h1>
     <ul class="list">
-      <form action="/add/" method="get">
+      <form action="/add_user/" method="get">
         <button type="submit" id="form_add">Dodaj nowego użytkownika</button>
       </form>
       {% for user in all_users %}
         <li class="item_complited"><a href="/projekt/{{user.id}}/">{{ user.name }}</a>
           <form action="/delete_user/{{user.id}}/" method="post" id="form_delete">{% csrf_token %}
             <button type="submit" id="delete_button" id="cross">usuń</button>
-          <form action="/edit/{{user.id}}/" method="get">
+          </form>
+          <form action="/edit_user/{{user.id}}/" method="get">
             <button type="submit" id="edit_button">edytuj</button>
           </form>
         </li>
