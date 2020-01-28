@@ -1,32 +1,19 @@
-<!--{% if latest_users_list %}
-    <ul>
-    {% for user in latest_users_list %}
-        <li><a href="{% url 'projekt:detail' user.id %}">{{ user.name }}
-          <form action = "/delete_user/{{user.id}}" method="post" id="form_delete">{% csrf_token %}</form>
-        </a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No users are available.</p>
-{% endif %}-->
-
 <body>
   <div class="list_content">
     <h1> Użytkownicy </h1>
     <ul class="list">
+      <form action="/add/" method="get">
+        <button type="submit" id="form_add">Dodaj nowego użytkownika</button>
+      </form>
       {% for user in all_users %}
         <li class="item_complited"><a href="/projekt/{{user.id}}/">{{ user.name }}</a>
           <form action="/delete_user/{{user.id}}/" method="post" id="form_delete">{% csrf_token %}
-          <button type="submit" id="delete_button" id="cross">usuń</button>
+            <button type="submit" id="delete_button" id="cross">usuń</button>
+          <form action="/edit/{{user.id}}/" method="get">
+            <button type="submit" id="edit_button">edytuj</button>
           </form>
         </li>
       {% endfor %}
     </ul>
-
-    <form action="/add_user/" method="post">{% csrf_token %}
-      <input type="text" name="name" maxlength="30" size="32" autofocus autocomplete="off" placeholder="Podaj imię"/>
-    <!--  <input type="text" name="name" maxlength="30" size="32" autofocus autocomplete="off" placeholder="Podaj nazwisko"/> -->
-      <input type="submit" value="Dodaj" class="submit_button"/>
-    </form>
   </div>
 </body>

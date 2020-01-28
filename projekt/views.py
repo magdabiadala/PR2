@@ -13,10 +13,28 @@ def detail(request, id):
     user = get_object_or_404(User, pk=id)
     return render(request, 'projekt/detail.html', {'user': user})
 
+#widok
+def add(request):
+    return render(request, 'projekt/add.html')
+
+#def add_user(request):
+#    User(name = request.POST['name'], surname = request.POST['surname']).save()
+#    return HttpResponseRedirect('/projekt/')
+
+#funkcja
 def add_user(request):
     User(name = request.POST['name']).save()
-#    User(surname = request.POST['surname']).save()
+#    User(name = request.POST['name'], surname = request.POST['surname'], date_of_birth = request.POST['date_of_birth'], login = request.POST['login']).save()
+#    context = {'user': user}
     return HttpResponseRedirect('/projekt/')
+
+def edit(request, id):
+    user = get_object_or_404(User, pk=id)
+    return render(request, 'projekt/edit.html', {'user': user})
+
+#def edit(request, id):
+#    user = get_object_or_404(User, pk=id)
+#    return render(request, 'projekt/edit.html', {'user': user})
 
 def delete_user(request, id):
     User.objects.get(id=id).delete()

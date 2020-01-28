@@ -17,10 +17,14 @@ from django.contrib import admin
 from django.urls import include, path
 from projekt.views import delete_user
 from projekt.views import add_user
+from projekt.views import add
+from projekt.views import edit
 
 urlpatterns = [
     path('projekt/', include('projekt.urls')),
     path('admin/', admin.site.urls),
     path('delete_user/<int:id>/', delete_user),
     path('add_user/', add_user),
+    path('add/', add),
+    path('edit/<int:id>/', edit),
 ]
