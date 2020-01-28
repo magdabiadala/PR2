@@ -1,16 +1,4 @@
 <body>
-  <!--<form action="/edit_user/{{user.id}}/" method="post">{% csrf_token %}
-    Enter a name
-    <br><input type="text" name="name" maxlength="30" size="32" autofocus autocomplete="off" placeholder="Podaj imię", required/><br>
-    Enter a surname
-    <br><input type="text" name="surname" maxlength="30" size="32" autofocus autocomplete="off" placeholder="nazwisko", required/><br>
-    Enter a date of birth
-    <br><input type="date" name="date_of_birth" size="32" autofocus autocomplete="off" placeholder="datę urodzenia"/><br>
-    Enter a login
-    <br><input type="text" name="login" maxlength="30" size="32" autofocus autocomplete="off" placeholder="login", required/><br><br>
-    Submit
-    <br><input type="submit" value="Zapisz zmiany" class="submit_button"/>
-  </form>-->
   <h1>New user</h1>
       <form method="POST" class="post-form">{% csrf_token %}
           {{ form.as_p }}

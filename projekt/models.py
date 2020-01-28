@@ -16,6 +16,10 @@ class User(models.Model):
     def __str__(self):
         return self.name
 
+    def delete_user(self):
+        self.is_deleted = True
+        self.save()
+
 
 
 '''def delete_user(request, id):
